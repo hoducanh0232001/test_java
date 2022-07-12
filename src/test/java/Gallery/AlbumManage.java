@@ -40,4 +40,17 @@ public class AlbumManage {
 
 
     }
+    public void searchMediaInListAlbum(int idAlbum, int idMedia ) {
+        for (int i = 0; i <= listAlbum.size(); i++) {
+            if (listAlbum.get(i).getId() == idAlbum) {
+                for(int j =0 ; j<= listAlbum.get(i).getMedialist().size();j++){
+                    if (listAlbum.get(i).getMedialist().get(j).getIdMedia() == idMedia){
+                        System.out.println(listAlbum.get(i).getMedialist().get(j));
+                    }
+                }
+            }
+        }
+
+
+    }
 }
