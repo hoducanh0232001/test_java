@@ -17,6 +17,43 @@ public class AlbumManage {
         this.listAlbum = listAlbum;
     }
 
+    public void addAlbum(){
+        Scanner sc = new Scanner(System.in);
+        for(int x = 0; x < 2; x++){
+            System.out.println("Nhập id: ");
+            int mId = sc.nextInt();
+            System.out.println("Nhập tên: ");
+            String mName = sc.next();
+            System.out.println("Nhập ngày: ");
+            String mDate = sc.next();
+            System.out.println("Nhập tên media: ");
+            String mList = sc.next();
+            listAlbum.add(new Album(mId,mName,mDate,mList));
+        }
+    }
+
+    public void updateAlbum(Album album){
+            for(int x = 0; x <listAlbum.size();x++){
+                if(listAlbum.get(x).getId()==album.getId()){
+                    listAlbum.remove(x);
+                    listAlbum.add(album);
+                }
+            }
+    }
+    public void deleteAlbum(int album){
+        for(int x= 0; x< listAlbum.size();x++){
+            if(listAlbum.get(x).getId() == album){
+                listAlbum.remove(x);
+            }
+        }
+    }
+    public void searchAlbum( int album){
+        for(int x =0 ; x< listAlbum.size();x++){
+            if(listAlbum.get(x).getId() == album){
+                System.out.println(listAlbum.get(x));
+            }
+        }
+    }
 
     public void addMediaInListAlbum(int idAlbum, Media media) {
         for (int i = 0; i <= listAlbum.size(); i++) {
@@ -26,7 +63,21 @@ public class AlbumManage {
         }
 
     }
-// tự làm sửa và tìm kiếm
+
+    public void updateMediaInListAlbum(int idAlbum, int idMedia, Media media ) {
+        for (int i = 0; i <= listAlbum.size(); i++) {
+            if (listAlbum.get(i).getId() == idAlbum) {
+                for(int j =0 ; j<= listAlbum.get(i).getMedialist().size();j++){
+                    if (listAlbum.get(i).getMedialist().get(j).getIdMedia() == idMedia){
+                        listAlbum.get(i).getMedialist().remove(j);
+                        listAlbum.get(i).getMedialist().add(media);
+                    }
+                }
+            }
+        }
+
+    }
+
     public void deleteMediaInListAlbum(int idAlbum, int idMedia ) {
         for (int i = 0; i <= listAlbum.size(); i++) {
             if (listAlbum.get(i).getId() == idAlbum) {
@@ -37,7 +88,6 @@ public class AlbumManage {
                 }
             }
         }
-
 
     }
     public void searchMediaInListAlbum(int idAlbum, int idMedia ) {
@@ -53,4 +103,5 @@ public class AlbumManage {
 
 
     }
+
 }
