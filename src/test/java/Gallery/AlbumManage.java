@@ -17,19 +17,8 @@ public class AlbumManage {
         this.listAlbum = listAlbum;
     }
 
-    public void addAlbum(){
-        Scanner sc = new Scanner(System.in);
-        for(int x = 0; x < 2; x++){
-            System.out.println("Nhập id: ");
-            int mId = sc.nextInt();
-            System.out.println("Nhập tên: ");
-            String mName = sc.next();
-            System.out.println("Nhập ngày: ");
-            String mDate = sc.next();
-            System.out.println("Nhập tên media: ");
-            String mList = sc.next();
-            listAlbum.add(new Album(mId,mName,mDate,mList));
-        }
+    public void addAlbum(Album album){
+        listAlbum.add(album);
     }
 
     public void updateAlbum(Album album){
@@ -104,4 +93,10 @@ public class AlbumManage {
 
     }
 
+    @Override
+    public String toString() {
+        return "AlbumManage{" +
+                "listAlbum=" + listAlbum +
+                '}';
+    }
 }

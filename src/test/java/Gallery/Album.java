@@ -47,6 +47,10 @@ public class Album {
         this.medialist = medialist;
     }
 
+    public void addMedia(Media media){
+        medialist.add(media);
+    }
+
     @Override
     public String toString() {
         return "Album{" +
